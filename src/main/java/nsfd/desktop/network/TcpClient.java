@@ -7,16 +7,24 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
-public class NsfdTcpClient {
+public class TcpClient {
+
+    private final String host;
+    private final int port;
+    private final int timeout;
+
+    public TcpClient(String host, int port, int timeout) {
+        this.host = host;
+        this.port = port;
+        this.timeout = timeout;
+    }
 
     public String executeRequest(String data) throws IOException {
-        InetAddress host = InetAddress.getLocalHost();
-        var socket = new Socket(host.getHostName(), 5000);
-        socket.setSoTimeout(1000);
+        var socket = new Socket(host, port);
+        socket.setSoTimeout(timeout);
 
         OutputStream output = socket.getOutputStream();
         Writer writer = new OutputStreamWriter(output, StandardCharsets.UTF_8);
@@ -33,9 +41,6 @@ public class NsfdTcpClient {
             response.append((char) c);
         }
 
-//        System.out.println(response);
-
-//        Thread.sleep(100);
         return response.toString();
     }
 }

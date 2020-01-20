@@ -25,6 +25,9 @@
                 <!--                    </children>-->
                 <Label text="test"/>
                 <Label fx:id="javaInfo"/>
+                <Label text="Nazwa domeny" prefWidth="120.0"/>
+                <TextField fx:id="domainMetricsInput"/>
+                <Button fx:id="refreshMetrics" text="Odśwież metryki"/>
             </children>
         </HBox>
     </center>
