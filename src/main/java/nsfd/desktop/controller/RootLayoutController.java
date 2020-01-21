@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import nsfd.desktop.api.MetricsRequest;
 import nsfd.desktop.di.ApplicationContext;
-import nsfd.desktop.service.MetricsService;
+import nsfd.desktop.metrics.MetricsService;
 
 import java.net.URL;
 import java.util.ResourceBundle;

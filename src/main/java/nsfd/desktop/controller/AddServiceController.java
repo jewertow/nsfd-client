@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import nsfd.desktop.api.WatchServiceCreateRequest;
 import nsfd.desktop.di.ApplicationContext;
-import nsfd.desktop.service.WatchService;
+import nsfd.desktop.watch.WatchService;
 
 import java.net.URL;
 import java.util.ResourceBundle;

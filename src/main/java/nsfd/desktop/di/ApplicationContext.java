@@ -2,10 +2,10 @@ package nsfd.desktop.di;
 
 import nsfd.desktop.api.serializer.MetricsRequestCsvSerializer;
 import nsfd.desktop.api.serializer.WatchServiceRequestCsvSerializer;
-import nsfd.desktop.network.MetricsClient;
-import nsfd.desktop.network.WatchServiceClient;
-import nsfd.desktop.service.MetricsService;
-import nsfd.desktop.service.WatchService;
+import nsfd.desktop.metrics.MetricsClient;
+import nsfd.desktop.watch.WatchServiceClient;
+import nsfd.desktop.metrics.MetricsService;
+import nsfd.desktop.watch.WatchService;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

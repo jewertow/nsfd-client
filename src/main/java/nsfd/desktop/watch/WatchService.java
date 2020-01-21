@@ -1,7 +1,6 @@
-package nsfd.desktop.service;
+package nsfd.desktop.watch;
 
 import nsfd.desktop.api.WatchServiceRequest;
-import nsfd.desktop.network.WatchServiceClient;
 
 public class WatchService {
 

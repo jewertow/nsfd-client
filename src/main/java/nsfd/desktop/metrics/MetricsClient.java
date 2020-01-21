@@ -1,7 +1,8 @@
-package nsfd.desktop.network;
+package nsfd.desktop.metrics;
 
 import nsfd.desktop.api.MetricsRequest;
 import nsfd.desktop.api.serializer.CsvSerializer;
+import nsfd.desktop.network.TcpClient;
 
 import java.io.IOException;
 

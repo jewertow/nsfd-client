@@ -1,7 +1,6 @@
-package nsfd.desktop.service;
+package nsfd.desktop.metrics;
 
 import nsfd.desktop.api.MetricsRequest;
-import nsfd.desktop.network.MetricsClient;
 
 public class MetricsService {
 
