@@ -2,30 +2,38 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="nsfd.desktop.controller.RootLayoutController"
-            prefHeight="800.0" prefWidth="1200.0">
-    <top>
-        <VBox prefWidth="1200.0">
-            <Button fx:id="addService" text="Dodaj serwis"/>
-<!--            <MenuBar>-->
-<!--&lt;!&ndash;                <Menu text="Monitoring"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                <Menu text="Ustawienia" fx:id="addMonitoring"/>&ndash;&gt;-->
-<!--            </MenuBar>-->
-        </VBox>
-    </top>
-    <center>
-        <HBox>
-            <children>
-                <!--                    <children>-->
-                <!--                        <fx:include source="AssetsTablePane.fxml"/>-->
-                <!--                        <fx:include source="InvestorsTablePane.fxml"/>-->
-                <!--                    </children>-->
-                <Label text="test"/>
-                <Label fx:id="javaInfo"/>
-            </children>
+            prefHeight="1000.0" prefWidth="1500.0">
+    <VBox>
+        <HBox maxHeight="50.0">
+            <Label text="Nazwa domeny" minWidth="120.0" maxWidth="120.0" prefWidth="120.0"/>
+            <TextField fx:id="domainMetricsInput" minWidth="120.0" maxWidth="120.0" prefWidth="120.0"/>
+            <Button fx:id="refreshMetrics" text="Odśwież" minWidth="120.0" maxWidth="120.0" maxHeight="120.0" prefWidth="120.0"/>
+            <Button fx:id="addService" text="Dodaj serwis" minWidth="120.0" maxWidth="120.0" prefWidth="120.0"/>
         </HBox>
-    </center>
+        <LineChart fx:id="metricsIcmpChart"
+                   minWidth="1500.0" maxWidth="1500.0" minHeight="450.0" maxHeight="500.0" prefHeight="300" title="ICMP">
+            <xAxis>
+                <CategoryAxis label="Timestamp" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Czas (ms)" side="LEFT" />
+            </yAxis>
+        </LineChart>
+        <LineChart fx:id="metricsTcpChart"
+                   minWidth="1500.0" maxWidth="1500.0" minHeight="450.0" maxHeight="500.0" prefHeight="300" title="TCP">
+            <xAxis>
+                <CategoryAxis label="Timestamp" side="BOTTOM" maxHeight="50.0"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Czas (ms)" side="LEFT" />
+            </yAxis>
+        </LineChart>
+    </VBox>
 </BorderPane>
