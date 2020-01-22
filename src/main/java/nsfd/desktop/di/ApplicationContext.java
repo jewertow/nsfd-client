@@ -1,5 +1,6 @@
 package nsfd.desktop.di;
 
+import nsfd.desktop.api.deserializer.MetricsResponseCsvDeserializer;
 import nsfd.desktop.api.serializer.MetricsRequestCsvSerializer;
 import nsfd.desktop.api.serializer.WatchServiceRequestCsvSerializer;
 import nsfd.desktop.metrics.MetricsClient;
@@ -48,6 +49,9 @@ public class ApplicationContext {
         var metricsRequestSerializer = new MetricsRequestCsvSerializer();
         contextByType.put(MetricsRequestCsvSerializer.class, metricsRequestSerializer);
 
+        var metricsDeserializer = new MetricsResponseCsvDeserializer();
+        contextByType.put(MetricsResponseCsvDeserializer.class, metricsDeserializer);
+
         var watchServiceClient = new WatchServiceClient("127.0.0.1", 5000, 1000, watchServiceSerializer);
         contextByType.put(WatchServiceClient.class, watchServiceClient);
 
@@ -57,7 +61,7 @@ public class ApplicationContext {
         var metricsClient = new MetricsClient("127.0.0.1", 5001, 1000, metricsRequestSerializer);
         contextByType.put(MetricsClient.class, metricsClient);
 
-        var metricsService = new MetricsService(metricsClient);
+        var metricsService = new MetricsService(metricsClient, metricsDeserializer);
         contextByType.put(MetricsService.class, metricsService);
     }
 }
